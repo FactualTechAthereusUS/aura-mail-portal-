@@ -1,11 +1,11 @@
 {
-  "version": 2,
-  "name": "aura-mail-employee-portal",
-  "regions": ["iad1"],
-  "functions": {
-    "app/api/**/*.ts": {
-      "maxDuration": 30
-    }
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["iad1", "sfo1", "lhr1"],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://portal.aurafarming.co/api",
+    "NEXT_PUBLIC_BACKEND_URL": "https://portal.aurafarming.co"
   },
   "headers": [
     {
@@ -25,8 +25,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 } 

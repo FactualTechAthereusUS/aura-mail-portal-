@@ -1,56 +1,47 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  // Optimized for Vercel deployment
+  output: 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   
-  // Vercel deployment configuration
-  output: 'standalone',
+  // Enable static optimization for better performance
+  images: {
+    unoptimized: true
+  },
   
-  // Handle multiple domains
-  async rewrites() {
-    return [
-      // Handle API routes
-      {
-        source: '/api/:path*',
-        destination: '/api/:path*',
-      },
-    ]
-  },
-
-  // Environment-based configuration
-  env: {
-    DOMAIN: process.env.DOMAIN || 'aurafarming.co',
-    MAIL_DOMAIN: process.env.MAIL_DOMAIN || 'mail.aurafarming.co',
-    PORTAL_DOMAIN: process.env.PORTAL_DOMAIN || 'portal.aurafarming.co',
-  },
-
-  // Optimize for production
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-
-  // Headers for security
+  // Configure for frontend-only deployment
+  trailingSlash: false,
+  
+  // Headers for CORS and security
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/:path*',
         headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
           {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
           },
         ],
+      },
+    ]
+  },
+
+  // Rewrites for API calls (proxy to DigitalOcean)
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://portal.aurafarming.co/api/:path*',
       },
     ]
   },

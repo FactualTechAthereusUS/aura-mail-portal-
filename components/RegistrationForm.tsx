@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, Check, X, Mail, User, Calendar, Lock, Users, Globe } from 'lucide-react';
+import { getApiUrl, config } from '@/lib/config';
 
 interface FormData {
   username: string;
@@ -59,7 +60,7 @@ export default function RegistrationForm() {
       setUsernameStatus({ checking: true, available: null, message: 'Checking availability...' });
 
       try {
-        const response = await fetch('/api/check-username', {
+        const response = await fetch(getApiUrl(config.endpoints.checkUsername), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: formData.username })
@@ -122,7 +123,7 @@ export default function RegistrationForm() {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch(getApiUrl(config.endpoints.register), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -469,4 +470,4 @@ export default function RegistrationForm() {
       </motion.div>
     </div>
   );
-} // Build timestamp: Tue Jul 29 08:21:04 EDT 2025
+} 
