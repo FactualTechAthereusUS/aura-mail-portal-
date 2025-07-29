@@ -1,7 +1,5 @@
 'use client';
 
-// Force rebuild - Updated: 2024-12-19 15:30 (Modern UI with real-time features)
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, Check, X, Mail, User, Calendar, Lock, Users, Globe } from 'lucide-react';
