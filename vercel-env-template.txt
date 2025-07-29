@@ -1,0 +1,25 @@
+# Environment Variables for Vercel Deployment
+# Copy these to your Vercel project settings
+
+# Database Configuration (Digital Ocean Backend)
+MYSQL_HOST=your-digitalocean-server-ip
+MYSQL_PORT=3306
+MYSQL_USER=mailuser
+MYSQL_PASSWORD=StrongMailPassword123!
+MYSQL_DATABASE=mailserver
+
+# Backend API Configuration
+BACKEND_HOST=your-digitalocean-server-ip
+BACKEND_API_KEY=your-secure-api-key
+
+# Domain Configuration
+DOMAIN=aurafarming.co
+MAIL_DOMAIN=mail.aurafarming.co
+PORTAL_DOMAIN=portal.aurafarming.co
+
+# Security Keys (Generate random strings)
+NEXTAUTH_SECRET=your-nextauth-secret-key-here
+JWT_SECRET=your-jwt-secret-key-here
+
+# Environment
+NODE_ENV=production 

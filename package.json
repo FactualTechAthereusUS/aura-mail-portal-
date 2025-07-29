@@ -1,0 +1,58 @@
+{
+  "name": "auramail-employee-portal",
+  "version": "1.0.0",
+  "description": "Employee self-registration portal for AuraMail email system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "./deploy-to-vercel.sh",
+    "deploy:vercel": "vercel --prod",
+    "build:analyze": "ANALYZE=true npm run build"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "mysql2": "^3.6.0",
+    "bcryptjs": "^2.4.3",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "framer-motion": "^10.16.0",
+    "lucide-react": "^0.294.0",
+    "zod": "^3.22.0",
+    "react-hook-form": "^7.47.0",
+    "@hookform/resolvers": "^3.3.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/bcryptjs": "^2.4.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  },
+  "keywords": [
+    "email",
+    "auramail",
+    "employee-portal",
+    "registration",
+    "nextjs",
+    "vercel",
+    "saas"
+  ],
+  "author": "AuraFarming Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aurafarming/employee-portal.git"
+  },
+  "homepage": "https://portal.aurafarming.co"
+} 
